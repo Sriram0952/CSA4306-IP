@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help & Support</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h2>Help & Support</h2>
+        </div>
+
+        <!-- Help Options -->
+        <div class="help-options">
+            <!-- Track Bus Option -->
+            <div class="help-option" onclick="trackBus()">
+                <img src="https://st3.depositphotos.com/1074452/12534/i/450/depositphotos_125343952-stock-photo-bus-station-location-indicates-local.jpg" alt="Track Bus" class="help-icon">
+                <h3>Track Bus</h3>
+            </div>
+
+            <!-- 24/7 Customer Care - Chat with Us Option -->
+            <div class="help-option" onclick="chatWithUs()">
+                <img src="https://cdn-icons-png.flaticon.com/512/3068/3068553.png" alt="Chat with Us" class="help-icon">
+                <h3>24/7 Customer Care - Chat with Us</h3>
+            </div>
+
+            <!-- Call Us Option -->
+            <div class="help-option" onclick="callSupport()">
+                <img src="https://cdn-icons-png.flaticon.com/512/724/724664.png" alt="Call Us" class="help-icon">
+                <h3>Call Us</h3>
+            </div>
+        </div>
+
+        <!-- Bottom Navbar Section -->
+        <div class="navbar">
+            <div class="nav-item" onclick="navigateTo('home')">
+                <img src="https://i.pinimg.com/564x/77/eb/49/77eb49298ec7ee7107ca0d8cb98a507e.jpg" alt="Home">
+                <p>Home</p>
+            </div>
+            <div class="divider"></div>
+            <div class="nav-item" onclick="navigateTo('wallet')">
+                <img src="https://static.vecteezy.com/system/resources/previews/035/692/634/non_2x/wallet-icon-design-template-simple-and-clean-vector.jpg" alt="My Wallet">
+                <p>My Wallet</p>
+            </div>
+            <div class="divider"></div>
+            <div class="nav-item" onclick="navigateTo('bookings')">
+                <img src="https://www.clipartmax.com/png/middle/184-1849504_save-money-reservation-icon-png.png" alt="Bookings">
+                <p>Bookings</p>
+            </div>
+            <div class="divider"></div>
+            <div class="nav-item" onclick="navigateTo('help')">
+                <img src="https://icons.veryicon.com/png/o/system/cloud-platform-operating-system/icon-help-1.png" alt="Help">
+                <p>Help</p>
+            </div>
+            <div class="divider"></div>
+            <div class="nav-item" onclick="navigateTo('account')">
+                <img src="https://static.vecteezy.com/system/resources/previews/021/079/672/non_2x/user-account-icon-for-your-design-only-free-png.png" alt="Account">
+                <p>Account</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script> <!-- Link to external JS -->
+</body>
+
+</html>

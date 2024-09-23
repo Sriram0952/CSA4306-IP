@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Bookings</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h2>My Bookings</h2>
+        </div>
+
+        <!-- Tab Navigation -->
+        <div class="tab-navigation">
+            <button class="tab-link active" id="current-tab" onclick="showTab('current')">Bookings</button>
+            <button class="tab-link" id="past-tab" onclick="showTab('past')">Past Bookings</button>
+            <button class="tab-link" id="cancelled-tab" onclick="showTab('cancelled')">Cancelled</button>
+        </div>
+
+        <!-- Tab Content Section -->
+        <div id="current" class="tab-content active">
+            <h3>Current Bookings</h3>
+            <div class="current-bookings">
+                <h3>Your Current Bookings</h3>
+                <div class="booking">
+                    <p><strong>Booking ID:</strong> #12345</p>
+                    <p><strong>Destination:</strong> Chennai</p>
+                    <p><strong>Date:</strong> September 25, 2024</p>
+                    <p><strong>Status:</strong> Confirmed</p>
+                    <button onclick="downloadTicket('#12345')">Download Ticket</button>
+                    <button onclick="viewTicket('#12345')">View Ticket</button>
+                </div>
+            </div>
+            
+        </div>
+
+        <div id="past" class="tab-content">
+            <h3>Past Bookings</h3>
+            <div class="booking">
+                <p><strong>Booking ID:</strong> #54321</p>
+                <p><strong>Destination:</strong> Ongole</p>
+                <p><strong>Date:</strong> August 15, 2024</p>
+                <p><strong>Status:</strong> Completed</p>
+            </div>
+            <div class="booking">
+                <p><strong>Booking ID:</strong> #67890</p>
+                <p><strong>Destination:</strong> Hyderabad</p>
+                <p><strong>Date:</strong> July 10, 2024</p>
+                <p><strong>Status:</strong> Completed</p>
+            </div>
+            <div class="booking">
+                <p><strong>Booking ID:</strong> #09876</p>
+                <p><strong>Destination:</strong> Coimbatore</p>
+                <p><strong>Date:</strong> June 20, 2024</p>
+                <p><strong>Status:</strong> Completed</p>
+            </div>
+        </div>
+
+        <div id="cancelled" class="tab-content">
+            <h3>Cancelled Bookings</h3>
+            <div class="booking">
+                <p><strong>Booking ID:</strong> #11223</p>
+                <p><strong>Destination:</strong> Mysore</p>
+                <p><strong>Date:</strong> September 5, 2024</p>
+                <p><strong>Status:</strong> Cancelled</p>
+            </div>
+            <div class="booking">
+                <p><strong>Booking ID:</strong> #33445</p>
+                <p><strong>Destination:</strong> Trivandrum</p>
+                <p><strong>Date:</strong> August 25, 2024</p>
+                <p><strong>Status:</strong> Cancelled</p>
+            </div>
+        </div>
+
+        <!-- Bottom Navbar Section -->
+        <div class="navbar">
+            <div class="nav-item" onclick="navigateTo('home')">
+                <img src="https://i.pinimg.com/564x/77/eb/49/77eb49298ec7ee7107ca0d8cb98a507e.jpg" alt="Home">
+                <p>Home</p>
+            </div>
+            <div class="divider"></div>
+            <div class="nav-item" onclick="navigateTo('wallet')">
+                <img src="https://static.vecteezy.com/system/resources/previews/035/692/634/non_2x/wallet-icon-design-template-simple-and-clean-vector.jpg" alt="My Wallet">
+                <p>My Wallet</p>
+            </div>
+            <div class="divider"></div>
+            <div class="nav-item" onclick="navigateTo('bookings')">
+                <img src="https://www.clipartmax.com/png/middle/184-1849504_save-money-reservation-icon-png.png" alt="Bookings">
+                <p>Bookings</p>
+            </div>
+            <div class="divider"></div>
+            <div class="nav-item" onclick="navigateTo('help')">
+                <img src="https://icons.veryicon.com/png/o/system/cloud-platform-operating-system/icon-help-1.png" alt="Help">
+                <p>Help</p>
+            </div>
+            <div class="divider"></div>
+            <div class="nav-item" onclick="navigateTo('account')">
+                <img src="https://static.vecteezy.com/system/resources/previews/021/079/672/non_2x/user-account-icon-for-your-design-only-free-png.png" alt="Account">
+                <p>Account</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script> <!-- Link to external JS -->
+</body>
+</html>

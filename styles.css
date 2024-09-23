@@ -1,0 +1,420 @@
+/* Reset and Box Sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #dbd0d0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+/* Container Styles */
+.container {
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 500px;
+    margin: auto;
+    max-width: 90%; /* Ensures responsiveness on smaller screens */
+    overflow-y: auto; /* Allows scrolling if content overflows */
+    min-height: calc(100vh - 80px); /* Ensures container takes up at least the viewport height minus navbar height */
+}
+
+/* Header Styles */
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.header h2 {
+    font-size: 24px;
+    color: #d9534f;
+}
+
+/* QR Code Styles */
+.qr-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%; /* Full page height */
+}
+
+.qr-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.qr-container img {
+    width: 350px; /* Set the width of the QR code image */
+    height: 300px;
+    margin-bottom: 10px;
+}
+
+.qr-container p {
+    font-size: 16px;
+    color: #333;
+}
+
+/* Tab Navigation Styles */
+.tab-navigation {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.tab-link {
+    background-color: #d9534f;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.tab-link.active {
+    background-color: #c9302c;
+}
+
+.tab-link:hover {
+    background-color: #b52a24;
+}
+
+/* Tab Content Styles */
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Booking Details Styles */
+.booking {
+    background-color: #fff;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.booking p {
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: #333;
+}
+
+.booking p strong {
+    color: #d9534f;
+}
+
+/* Wallet Page Styles */
+.wallet-details {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column; /* Align children in a column */
+    align-items: center; /* Center align buttons */
+}
+
+.wallet-details p {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.wallet-details button {
+    background-color: #d9534f;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-bottom: 10px; /* Space between buttons */
+    transition: background-color 0.3s ease;
+    width: 100%; /* Full width buttons */
+    max-width: 300px; /* Optional: Limit button width */
+}
+
+.wallet-details button:hover {
+    background-color: #c9302c;
+}
+
+/* Account Page Styles */
+.account-nav {
+    margin-top: 20px;
+}
+
+.account-nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+.account-nav ul li {
+    margin-bottom: 10px;
+}
+
+.account-nav a {
+    color: #d9534f;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.account-nav a:hover {
+    text-decoration: underline;
+}
+
+.account-content {
+    display: none; /* Hidden by default */
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.account-content.active {
+    display: block;
+}
+
+/* Navbar Styles */
+.navbar {
+    position: fixed; /* Sticks the navbar to the bottom of the viewport */
+    bottom: 0; /* Aligns it at the bottom */
+    left: 0;
+    width: 100%; /* Spans the full width of the viewport */
+    display: flex;
+    justify-content: space-around; /* Evenly distributes items */
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+    padding: 10px 0;
+    border-top: 1px solid #ccc;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000; /* Ensures navbar stays on top of other elements */
+}
+
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #555;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    flex: 1; /* Ensure even spacing for all nav-items */
+}
+
+.nav-item:hover p {
+    color: #d9534f;
+}
+
+.nav-item img {
+    width: 28px; /* Adjust as needed */
+    height: 28px; /* Adjust as needed */
+    margin-bottom: 5px;
+}
+
+.nav-item p {
+    font-size: 12px;
+    margin: 0;
+}
+
+.nav-item p.active {
+    color: #d9534f;
+}
+
+/* Divider Between Navbar Items */
+.divider {
+    width: 1px;
+    height: 30px;
+    background-color: #ccc;
+}
+
+/* Help Page Styles */
+.help-options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 100px;
+    margin-top: 20px;
+}
+
+.help-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    text-align: center;
+}
+
+.help-icon {
+    width: 60px; /* Adjust width as needed */
+    height: 60px; /* Adjust height as needed */
+    margin-bottom: 10px;
+}
+
+.help-option h3 {
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+/* Search Form Styles */
+.search-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #333;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.search-btn {
+    background-color: #d9534f;
+    color: white;
+    border: none;
+    padding: 12px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.search-btn:hover {
+    background-color: #c9302c;
+}
+
+/* Filter Section Styles */
+.filter-section {
+    margin-top: 15px;
+    padding: 15px;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.filter-section h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.filter-group {
+    margin-bottom: 10px;
+}
+
+.filter-group label {
+    font-size: 14px;
+    color: #555;
+}
+
+.filter-group select {
+    padding: 8px;
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+/* Results Section Styles */
+.results {
+    margin-top: 20px;
+}
+
+.bus-result {
+    background-color: #fff;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.bus-result p {
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: #333;
+}
+
+.bus-result p strong {
+    color: #d9534f;
+}
+
+/* Seat Map Styles */
+.seat-map {
+    display: flex;
+    flex-direction: column; /* Stack rows vertically */
+    align-items: center; /* Center the seat map */
+    margin-top: 20px; /* Space above the seat map */
+}
+
+.seat-row {
+    display: flex; /* Arrange seats in a row */
+    justify-content: center; /* Center seats horizontally */
+    margin-bottom: 10px; /* Space between rows */
+}
+
+.seat {
+    width: 30px; /* Width of each seat */
+    height: 30px; /* Height of each seat */
+    border: 1px solid #999; /* Border color */
+    border-radius: 5px; /* Rounded corners */
+    margin: 2px; /* Space between seats */
+    background-color: #f9f9f9; /* Default seat color */
+    display: flex; /* Enable flexbox for seat content */
+    justify-content: center; /* Center content inside seats */
+    align-items: center; /* Center content inside seats */
+    cursor: pointer; /* Change cursor on hover */
+    transition: background-color 0.3s; /* Smooth background color change */
+}
+
+.seat.available {
+    background-color: #5cb85c; /* Available seat color */
+}
+
+.seat.selected {
+    background-color: #d9534f; /* Selected seat color */
+}
+
+.seat.unavailable {
+    background-color: #f0ad4e; /* Unavailable seat color */
+    cursor: not-allowed; /* Show not-allowed cursor */
+}
+
+.seat:hover.available {
+    background-color: #4cae4c; /* Darker green on hover */
+}
+
+/* Responsive Styles for Seat Map */
+@media (max-width: 600px) {
+    .seat {
+        width: 25px; /* Smaller seat width on mobile */
+        height: 25px; /* Smaller seat height on mobile */
+    }
+}

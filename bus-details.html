@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bus Details</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Inline styles for quick styling of navbar and bus details */
+        .container {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            margin: auto;
+            max-width: 600px;
+        }
+
+        .header h2 {
+            text-align: center;
+            color: #d9534f;
+        }
+
+        .navbar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 10px 0;
+            border-top: 1px solid #ccc;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #555;
+            cursor: pointer;
+        }
+
+        .nav-item img {
+            width: 28px;
+            height: 28px;
+        }
+
+        .nav-item p {
+            font-size: 12px;
+            margin: 0;
+        }
+
+        .divider {
+            width: 1px;
+            height: 30px;
+            background-color: #ccc;
+        }
+
+        .bus-info {
+            margin: 20px 0;
+        }
+
+        #seat-map {
+            margin: 20px 0;
+        }
+
+        button {
+            background-color: #d9534f;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px 0;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #c9302c;
+        }
+
+        #price-section, #payment-section, #booking-summary {
+            display: none;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        #price-section h3, #booking-summary h3 {
+            margin-bottom: 10px;
+            color: #d9534f;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h2>Bus Details</h2>
+        </div>
+
+        <!-- Bus Information Section -->
+        <div id="bus-info">
+            <p><strong>Bus Number:</strong> 1234</p>
+            <p><strong>From:</strong> City A</p>
+            <p><strong>To:</strong> City B</p>
+            <p><strong>Departure:</strong> 10:00 AM</p>
+            <p><strong>Arrival:</strong> 2:00 PM</p>
+        </div>
+
+        <!-- Seat Map Section -->
+        <div id="seat-map">
+            <h3>Seat Map</h3>
+            <div class="seat-row">
+                <div class="seat available" data-seat="1A">1A</div>
+                <div class="seat available" data-seat="1B">1B</div>
+                <div class="seat available" data-seat="1C">1C</div>
+            </div>
+            <div class="seat-row">
+                <div class="seat available" data-seat="2A">2A</div>
+                <div class="seat booked" data-seat="2B">2B</div>
+                <div class="seat available" data-seat="2C">2C</div>
+            </div>
+            <div class="seat-row">
+                <div class="seat available" data-seat="3A">3A</div>
+                <div class="seat available" data-seat="3B">3B</div>
+                <div class="seat available" data-seat="3C">3C</div>
+            </div>
+        </div>
+
+        <!-- Selected Seats -->
+        <div id="seats-list">
+            <h3>Selected Seats: <span id="selected-seats">None</span></h3>
+        </div>
+
+        <!-- Confirm Button -->
+        <button id="confirm-selection">Confirm Selection</button>
+
+        <!-- Ticket Price Section -->
+        <div id="price-section">
+            <h3>Total Price: <span id="total-price"></span></h3>
+        </div>
+
+        <!-- Payment Section -->
+        <div id="payment-section">
+            <h3>Payment Details</h3>
+            <div class="payment-details">
+                <input type="text" id="card-name" placeholder="Cardholder Name">
+                <input type="text" id="card-number" placeholder="Card Number" maxlength="16">
+                <input type="text" id="expiry-date" placeholder="Expiry Date (MM/YY)" maxlength="5">
+                <input type="text" id="cvv" placeholder="CVV" maxlength="3">
+                <button id="pay-button">Pay Now</button>
+            </div>
+        </div>
+
+        <!-- Booking Summary Section -->
+        <div id="booking-summary">
+            <h3>Booking Confirmed!</h3>
+            <p><strong>Date:</strong> September 25, 2024</p>
+            <p><strong>Bus Number:</strong> 1234</p>
+            <p><strong>From:</strong> Ongole</p>
+            <p><strong>To:</strong> Chennai</p>
+            <p><strong>Departure:</strong> 10:00 AM</p>
+            <p><strong>Arrival:</strong> 2:00 PM</p>
+            <p><strong>Selected Seats:</strong> <span id="final-seats">None</span></p>
+            <p><strong>Total Price:</strong> <span id="final-price"></span></p>
+        </div>
+
+        <!-- Bottom Navbar Section -->
+        <div class="navbar">
+            <div class="nav-item" onclick="navigateTo('home')">
+                <img src="https://i.pinimg.com/564x/77/eb/49/77eb49298ec7ee7107ca0d8cb98a507e.jpg" alt="Home">
+                <p>Home</p>
+            </div>
+            <div class="divider"></div>
+            <div class="nav-item" onclick="navigateTo('wallet')">
+                <img src="https://static.vecteezy.com/system/resources/previews/035/692/634/non_2x/wallet-icon-design-template-simple-and-clean-vector.jpg" alt="My Wallet">
+                <p>My Wallet</p>
+            </div>
+            <div class="divider"></div>
+            <div class="nav-item" onclick="navigateTo('bookings')">
+                <img src="https://www.clipartmax.com/png/middle/184-1849504_save-money-reservation-icon-png.png" alt="Bookings">
+                <p>Bookings</p>
+            </div>
+            <div class="divider"></div>
+            <div class="nav-item" onclick="navigateTo('help')">
+                <img src="https://icons.veryicon.com/png/o/system/cloud-platform-operating-system/icon-help-1.png" alt="Help">
+                <p>Help</p>
+            </div>
+            <div class="divider"></div>
+            <div class="nav-item" onclick="navigateTo('account')">
+                <img src="https://static.vecteezy.com/system/resources/previews/021/079/672/non_2x/user-account-icon-for-your-design-only-free-png.png" alt="Account">
+                <p>Account</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const ticketPrice = 400; // Example ticket price
+
+        function navigateTo(page) {
+            // Redirect to the specified page
+            switch (page) {
+                case 'home':
+                    window.location.href = 'index.html';
+                    break;
+                case 'wallet':
+                    window.location.href = 'wallet.html';
+                    break;
+                case 'bookings':
+                    window.location.href = 'bookings.html';
+                    break;
+                case 'help':
+                    window.location.href = 'help.html';
+                    break;
+                case 'account':
+                    window.location.href = 'account.html';
+                    break;
+                default:
+                    alert('Page not found');
+            }
+        }
+
+        document.querySelectorAll('.seat').forEach(seat => {
+            seat.addEventListener('click', function () {
+                this.classList.toggle('selected');
+                updateSelectedSeats();
+            });
+        });
+
+        function updateSelectedSeats() {
+            const selectedSeats = document.querySelectorAll('.seat.selected');
+            const seatNumbers = Array.from(selectedSeats).map(seat => seat.dataset.seat);
+            document.getElementById('selected-seats').innerText = seatNumbers.length > 0 ? seatNumbers.join(', ') : 'None';
+        }
+
+        document.getElementById('confirm-selection').addEventListener('click', function () {
+            const selectedSeats = document.querySelectorAll('.seat.selected');
+            const seatNumbers = Array.from(selectedSeats).map(seat => seat.dataset.seat);
+
+            if (seatNumbers.length === 0) {
+                alert('Please select at least one seat.');
+                return;
+            }
+
+            const totalPrice = ticketPrice * seatNumbers.length;
+            document.getElementById('total-price').innerText = '$' + totalPrice;
+            document.getElementById('price-section').style.display = 'block';
+            document.getElementById('payment-section').style.display = 'block';
+        });
+
+        document.getElementById('pay-button').addEventListener('click', function () {
+            const selectedSeats = document.querySelectorAll('.seat.selected');
+            const seatNumbers = Array.from(selectedSeats).map(seat => seat.dataset.seat);
+            const totalPrice = ticketPrice * seatNumbers.length;
+
+            // Display booking summary
+            document.getElementById('final-seats').innerText = seatNumbers.join(', ');
+            document.getElementById('final-price').innerText = '$' + totalPrice;
+            document.getElementById('booking-summary').style.display = 'block';
+        });
+    </script>
+</body>
+
+</html>

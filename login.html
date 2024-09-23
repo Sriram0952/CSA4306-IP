@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bus Booking</title>
+    <style>
+        /* General styling for body and container */
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background: url('https://image.made-in-china.com/2f0j00RtPYCVQcFEbL/Slk6122gt-Coach-Tourist-Bus-New-Bus-Luxury-Bus.jpg') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            width: 400px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        /* Unique Left Corner Heading */
+        .header {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%); /* This centers the element horizontally */
+    font-size: 28px;
+    font-family: 'Copperplate Gothic Light', sans-serif;
+    font-weight: bold;
+    color: #110a06; /* Unique color */
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+
+        /* Form elements styling */
+        input[type="text"], input[type="password"], input[type="email"] {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #ff6600;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #ff3300;
+        }
+
+        /* Default visible section */
+        .section {
+            display: none;
+        }
+
+        #login-section {
+            display: block; /* Login form is visible by default */
+        }
+
+        /* Styling for the options (Forgot Password and Sign Up) */
+        .options {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .options a {
+            color: #ff6600;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 0 10px;
+        }
+
+        .options a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- Unique Left Corner Heading -->
+    <div class="header">
+        <h1>Make My Ride</h1>
+    </div>
+
+    <div class="container">
+        <!-- Login Section -->
+        <div id="login-section" class="section">
+            <h2>Login</h2>
+            <form id="login-form">
+                <input type="text" id="login-username" name="username" placeholder="Username" required>
+                <input type="password" id="login-password" name="password" placeholder="Password" required>
+                <input type="checkbox" id="remember-me" name="remember-me">
+                <label for="remember-me">Remember me</label>
+                <button type="submit" id="login-submit-button">Login</button>
+                <div class="options">
+                    <a href="#" id="forgot-password-link">Forgot Password</a> |
+                    <a href="#" id="sign-up-link">Sign Up</a>
+                </div>
+            </form>
+        </div>
+
+        <!-- Forgot Password Section -->
+        <div id="forgot-password-section" class="section">
+            <h2>Forgot Password</h2>
+            <form id="forgot-password-form">
+                <input type="email" id="forgot-email" name="email" placeholder="Enter your email" required>
+                <button type="button" id="send-reset-link-button">Send Reset Link</button>
+                <a href="#" id="back-to-login-from-forgot">Back to Login</a>
+            </form>
+        </div>
+
+        <!-- Sign Up Section -->
+        <div id="signup-section" class="section">
+            <h2>Sign Up</h2>
+            <form id="signup-form">
+                <input type="text" id="signup-username" name="username" placeholder="Username" required>
+                <input type="email" id="signup-email" name="email" placeholder="Email" required>
+                <input type="password" id="signup-password" name="password" placeholder="Password" required>
+                <input type="text" id="signup-mobile" name="mobile" placeholder="Mobile Number" required>
+                <button type="button" id="signup-submit-button">Sign Up</button>
+                <a href="#" id="back-to-login-from-signup">Back to Login</a>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const loginForm = document.getElementById('login-form');
+            const usernameInput = document.getElementById('login-username');
+            const passwordInput = document.getElementById('login-password');
+            const rememberMeCheckbox = document.getElementById('remember-me');
+
+            // Sample credentials for testing purposes
+            const SAMPLE_USERNAME = 'sdk123';
+            const SAMPLE_PASSWORD = 'password123';
+
+            // Initialize local storage with sample credentials
+            localStorage.setItem('savedUsername', SAMPLE_USERNAME);
+            localStorage.setItem('savedPassword', SAMPLE_PASSWORD);
+            localStorage.setItem('rememberMe', 'true');
+
+            // Load saved credentials from local storage
+            // Load saved credentials from local storage
+            // Load saved credentials from local storage
+            if (localStorage.getItem('rememberMe') === 'true') {
+                usernameInput.value = localStorage.getItem('savedUsername') || '';
+                rememberMeCheckbox.checked = true;
+                // Password will not be auto-filled for security reasons
+                }
+            loginForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+
+                if (rememberMeCheckbox.checked) {
+                    localStorage.setItem('savedUsername', usernameInput.value);
+                    localStorage.setItem('savedPassword', passwordInput.value);
+                    localStorage.setItem('rememberMe', 'true');
+                } else {
+                    localStorage.removeItem('savedUsername');
+                    localStorage.removeItem('savedPassword');
+                    localStorage.setItem('rememberMe', 'false');
+                }
+
+                // Handle successful login
+                alert('Login submitted with username: ' + usernameInput.value);
+
+                // Redirect to index.html
+                window.location.href = 'index.html'; // Ensure 'index.html' is the correct path
+            });
+
+            document.getElementById('forgot-password-link').addEventListener('click', function(event) {
+                event.preventDefault();
+                document.getElementById('login-section').style.display = 'none';
+                document.getElementById('forgot-password-section').style.display = 'block';
+            });
+
+            document.getElementById('sign-up-link').addEventListener('click', function(event) {
+                event.preventDefault();
+                document.getElementById('login-section').style.display = 'none';
+                document.getElementById('signup-section').style.display = 'block';
+            });
+
+            document.getElementById('back-to-login-from-forgot').addEventListener('click', function(event) {
+                event.preventDefault();
+                document.getElementById('forgot-password-section').style.display = 'none';
+                document.getElementById('login-section').style.display = 'block';
+            });
+
+            document.getElementById('back-to-login-from-signup').addEventListener('click', function(event) {
+                event.preventDefault();
+                document.getElementById('signup-section').style.display = 'none';
+                document.getElementById('login-section').style.display = 'block';
+            });
+        });
+    </script>
+</body>
+</html>

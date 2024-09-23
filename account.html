@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Page</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h2>Account Details</h2>
+        </div>
+
+        <!-- Account Navigation Section -->
+        <div class="account-nav">
+            <ul>
+                <li><a href="#my-account" onclick="showAccountSection('my-account')">My Account Details</a></li>
+                <li><a href="#about-us" onclick="showAccountSection('about-us')">About Us</a></li>
+                <li><a href="#terms" onclick="showAccountSection('terms')">Terms & Conditions</a></li>
+                <li><a href="logout.html">Log Out</a></li>
+            </ul>
+        </div>
+
+        <!-- Account Content Sections -->
+        <div id="my-account" class="account-content">
+            <h3>My Account Details</h3>
+            <p><strong>Name:</strong> S Dharanesh Kumar</p>
+            <p><strong>Age:</strong> 20</p>
+            <p><strong>Gender:</strong> Male</p>
+            <p><strong>Email:</strong> dharaneshkumarsirigiri8@gmail.com</p>
+            <p><strong>Address:</strong> Sivarampuram, Ongole</p>
+        </div>
+
+        <div id="about-us" class="account-content">
+            <h3>About Us</h3>
+            <p>At [Your Company Name], our goal is to provide comfortable and reliable bus services to meet your travel needs. We are committed to ensuring every journey is safe, convenient, and enjoyable.</p>
+        </div>
+
+        <div id="terms" class="account-content">
+            <h3>Terms & Conditions</h3>
+            <p>Please take a moment to review our terms and conditions, which outline the rights and responsibilities associated with using our services. We appreciate your cooperation in helping us maintain a smooth and fair travel experience for all passengers.</p>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="nav-item" onclick="navigateTo('home')">
+            <img src="https://i.pinimg.com/564x/77/eb/49/77eb49298ec7ee7107ca0d8cb98a507e.jpg" alt="Home">
+            <p>Home</p>
+        </div>
+        <div class="divider"></div>
+        <div class="nav-item" onclick="navigateTo('wallet')">
+            <img src="https://static.vecteezy.com/system/resources/previews/035/692/634/non_2x/wallet-icon-design-template-simple-and-clean-vector.jpg" alt="Wallet">
+            <p>Wallet</p>
+        </div>
+        <div class="divider"></div>
+        <div class="nav-item" onclick="navigateTo('bookings')">
+            <img src="https://www.clipartmax.com/png/middle/184-1849504_save-money-reservation-icon-png.png" alt="Bookings">
+            <p>Bookings</p>
+        </div>
+        <div class="divider"></div>
+        <div class="nav-item" onclick="navigateTo('help')">
+            <img src="https://icons.veryicon.com/png/o/system/cloud-platform-operating-system/icon-help-1.png" alt="Help">
+            <p>Help</p>
+        </div>
+        <div class="divider"></div>
+        <div class="nav-item" onclick="navigateTo('account')">
+            <img src="https://static.vecteezy.com/system/resources/previews/021/079/672/non_2x/user-account-icon-for-your-design-only-free-png.png" alt="Account">
+            <p>Account</p>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
